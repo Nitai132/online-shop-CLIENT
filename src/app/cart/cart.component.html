@@ -1,0 +1,93 @@
+<div class="container">
+  <mat-accordion multi *ngIf="isAdmin === 0">
+    <mat-expansion-panel class="expansion">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            My Cart
+        </mat-panel-title>
+        <mat-panel-description>
+            Click to open/close
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <h5 id="ifEmpty" *ngIf="cartProducts.length == 0">Your cart is empty</h5>
+      <ng-container *ngIf="productsDetails.length > 0">
+        <span *ngFor="let productDetail of productsDetails; let i = index">
+          <p *ngFor= "let product of productDetail">
+            Product: {{product.name}}
+            <br />
+            Product's price: {{product.price}}₪
+            <br />
+            <span *ngIf="cartProducts[i]">Product's total price:{{product.price*cartProducts[i].amount}}₪</span> 
+            <br />
+            <img class="cartImg" src="http://localhost:4422/img/{{product.img}}">
+            <button mat-mini-fab class="decreaseBtn" (click)="decreaseAmount(cartProducts[i].productId)" color="secondary">
+              <mat-icon>remove</mat-icon>
+            </button>
+            <span class="amount" *ngIf="cartProducts[i]"> {{cartProducts[i].amount}} </span>
+            <button mat-mini-fab class="increaseBtn" (click)="increaseAmount(cartProducts[i].productId)" color="secondary">
+              <mat-icon>add</mat-icon>
+            </button>
+            <button mat-mini-fab class="deleteBtn" (click)="deleteItem(cartProducts[i].productId)" color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </p>
+        </span>
+      </ng-container>
+      <br />
+      <br />
+      <p id="totalPrice">Cart's Total price: <span class="totalPriceNumber">{{totalPrice}}</span> </p>
+      <button mat-button class="deleteAllBtn" (click)="deleteAllItems()" color="warn">
+          remove all products
+      </button>
+      <a href="/order"id="buyBtn">Proceed to payment</a>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <div class="adminCart" *ngIf="isAdmin === 1">
+    <h3>Add new Product</h3>
+    <br />
+    <div>
+      <mat-form-field>
+        <mat-label>Product's name</mat-label>
+        <input matInput placeholder="new product's name" (change)="newProductNameHandler($event)">
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Product's price</mat-label>
+        <input matInput placeholder="new product's price" (change)="newProductPriceHandler($event)">
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill">
+        <mat-label>Product's category</mat-label>
+        <mat-select [(ngModel)]="selectCategory">
+          <mat-option *ngFor="let category of categories" [value]="category._id">
+            {{category.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+      <span id="uploadFile">image: <input type="file" (change)="handleFileInput($event.target.files)"></span>
+      <br />
+      <br />
+      <button class="editItemBTN" mat-raised-button color="primary" (click)="addProduct()">Add new item</button>
+    </div>
+    <br />
+    <h3>Edit a product (click on "edit product" under the product you want to edit)</h3>
+    <div *ngIf="editDetails.name">
+      <mat-form-field>
+        <mat-label>Product's name</mat-label>
+        <input matInput value="{{editDetails.name}}" (change)="editProductNameHandler($event)">
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Product's price</mat-label>
+        <input matInput value="{{editDetails.price}}" (change)="editProductPriceHandler($event)">
+      </mat-form-field>
+      <br />
+      <span id="uploadFile">image: <input type="file" (change)="editProductImgHandler($event.target.files)"></span>
+      <br />
+      <br />
+      <button class="editItemBTN" mat-raised-button color="warn" (click)="editProduct()">edit {{editDetails.name}}</button>
+    </div>
+
+  </div>
+</div>

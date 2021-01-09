@@ -1,0 +1,31 @@
+<div class="categories-container">
+    <mat-button-toggle-group #group="matButtonToggleGroup" name="fontStyle" aria-label="Font Style" value={{selectedCategory}}>
+        <mat-button-toggle *ngFor="let category of categories; let i = index" (click)="selectedChanged(group.value)" value="{{category._id}}">{{category.name}}</mat-button-toggle>
+    </mat-button-toggle-group>
+</div>
+<h3 *ngIf="selectedCategory == '5fdff041c5c35c65c4f91e0e'" class="fruitsText"> all the vegetables & fruits are sold per KG and the price represents 1 KG</h3>
+<div class="products-container">
+    <form class="form">
+        <mat-form-field class="searchInput">
+          <mat-label>Search</mat-label>
+          <input (keyup)="filterProducts($event)" matInput placeholder="Example: Yolo">
+        </mat-form-field>
+    </form>
+    <div *ngIf = "filteredArray.length == products.length">
+        <div class ="card" *ngFor = "let product of products">
+            <h4 class= "product-title">{{product.name}}</h4>
+            <img class="img" src="http://localhost:4422/img/{{product.img}}">
+            <span class="product-price">price: ₪{{product.price}}</span>
+            <button *ngIf="isAdmin === 0"class="addBTN" mat-raised-button color="primary" (click)="addProductToCart(product._id)">Add to cart</button>
+            <button *ngIf="isAdmin === 1"class="addBTN" mat-raised-button color="warn" (click)="editProduct(product._id, product.name, product.price, product.img)">edit product</button>
+        </div>
+    </div>
+    <div *ngIf = "filteredArray.length != products.length">
+        <div class ="card" *ngFor = "let prod of filteredArray">
+            <h4 class= "product-title">{{prod.name}}</h4>
+            <img class="img" src="http://localhost:4422/img/{{prod.img}}">
+            <span class="product-price">price: ₪{{prod.price}}</span>
+            <button *ngIf="isAdmin === 1"class="addBTN" mat-raised-button color="warn" (click)="editProduct(product._id, product.name, product.price, product.img)">edit product</button>
+            <button *ngIf="isAdmin === 0" class="addBTN" mat-raised-button color="primary" (click)="addProductToCart(prod._id)">Add to cart</button>
+        </div>
+    </div>

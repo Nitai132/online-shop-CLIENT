@@ -1,0 +1,72 @@
+.login-form {
+    width: 400px;
+    height: 420px;
+    position: absolute;
+    top: 38%;
+    left: 37%;
+    text-align: center;
+}
+
+#mainText {
+    position: absolute;
+    left: 33%;
+    top: 15%;
+}
+
+#secondary-text{
+    color: red;
+    position: absolute;
+    top: 0;
+    top: 120px;
+    left: 75%;
+}
+
+#hello {
+    margin-left: 6%;
+}
+
+#hello2 {
+    margin-left: 13%;
+}
+
+#welcome {
+    padding-left: 21%;
+}
+
+#contact {
+    padding-left: 12%;
+}
+
+#login-button {
+    width: 50%;
+}
+
+#startShoping {
+    margin: 85px;
+    position: absolute;
+    left: 600px;
+    top: 300px;
+}
+
+#mainImg{
+    position: absolute;
+    top: 285px;
+    left: 18px;
+    width: 500px;
+    height: 420px;
+}
+
+#secondaryImg {
+    position: absolute;
+    left: 1000px;
+    top: 285px;
+    height: 420px;
+    width: 500px;
+}
+
+#login-text{
+    font-family: 'Hanalei Fill', cursive;
+    font-size: 20px;
+    padding-top: 62px;
+    padding-left: 20px;
+}

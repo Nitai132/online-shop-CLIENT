@@ -1,0 +1,67 @@
+<mat-toolbar color="primary">
+    <button mat-button class="logoutBtn" (click)="logout()" color="warn">
+        logout
+    </button>
+    <span id="hello">Hello {{userDetails.firstName}}</span>
+    <span id="welcome">Welcome to Nitai's online market</span>
+    <span id="contact">Contact: Bitai132@gmail.com or: 052-2234047</span>
+</mat-toolbar>
+
+<div class="cartDiv">
+    <h3>My cart</h3>
+    <h4 id="ifEmpty" *ngIf="productsDetails.length === 0">your cart is empty</h4>
+    <a href="/" class="returnAnchor">back to shop</a>
+    <ng-container *ngIf="productsDetails.length > 0">
+        <span *ngFor="let productDetail of productsDetails; let i = index">
+          <p *ngFor= "let product of productDetail">
+            Product: {{product.name}}
+            <br />
+            Product's price: {{product.price}}₪
+            <br />
+            <span class="amount" *ngIf="products[i]">quantity: {{products[i].amount}} </span>
+            <br />
+            <span class="priceTxt" *ngIf="products[i]">Product's total price:{{product.price*products[i].amount}}₪</span> 
+            <img class="cartImg" src="http://localhost:4422/img/{{product.img}}">
+          </p>
+        </span>
+        <h3>cart's total price: {{price}}₪</h3>
+        <h3 class="noChanges">No changes premitted here!</h3>
+      </ng-container>
+</div>
+
+<div class="orderDiv">
+    <br />
+    <h3>My Order Details</h3>
+    <br />
+    <br />
+
+    <form class="order-form">
+        <mat-form-field>
+            <mat-label>City</mat-label>
+            <input matInput placeholder="Ex. Tel-Aviv" value="{{userDetails.city}}" (change)="cityChanges($event)">
+        </mat-form-field>
+        <br />
+        <br />
+        <mat-form-field class="example-full-width">
+            <mat-label>Street</mat-label>
+            <input matInput placeholder="Ex. King geroge 1/1" value="{{userDetails.street}}" (change)="streetChanges($event)">
+        </mat-form-field>
+        <br />
+        <br />
+        <mat-form-field appearance="fill" class="datePicker">
+            <mat-label>Delivery date</mat-label>
+            <input matInput [min]="minDate" [matDatepicker]="dp3"  (dateChange)="dateChanged($event)">
+            <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+            <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+        </mat-form-field>
+    </form>
+    <h3>Payment Details</h3>
+    <form class="payment-form">
+        <mat-form-field>
+            <mat-label>Credit Card</mat-label>
+            <input matInput placeholder="Ex. 4580090102230578" placeholder="Credit Card" (change)="creditCardChanges($event)">
+        </mat-form-field>
+    </form>
+    <br />
+    <button (click)="order()" mat-raised-button class="purchaseBtn">Order</button>
+</div>

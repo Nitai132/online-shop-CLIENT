@@ -1,0 +1,92 @@
+.acordion{
+    width: 30%;
+    position: absolute;
+}
+
+.container {
+    width: 35%;
+}
+
+.expansion {
+    height: 100%;
+}
+
+#buyBtn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    right: 20px;
+    bottom: 10px;
+}
+
+#totalPrice {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    left: 20px;
+    
+}
+
+.totalPriceNumber {
+    font-size: 30px;
+    color: rgb(9, 94, 9);
+}
+
+#ifEmpty {
+    color: red;
+    text-align: center;
+}
+
+.cartImg {
+    position: relative;
+    bottom: 70px;
+    left: 170px;
+    width: 80px;
+}
+
+input[type=number]{
+    width: 30px;
+} 
+
+.amount {
+    position: relative;
+    right: 75px;
+    bottom: 25px;
+    font-size: 30px;
+    
+}
+
+.deleteBtn {
+    position: relative;
+    bottom: 27px;
+}
+
+.increaseBtn {
+    position: relative;
+    right: 70px;
+    bottom: 29px;
+}
+
+.decreaseBtn {
+   position: relative;
+   right: 80px;
+   bottom: 30px;
+}
+
+.deleteAllBtn {
+    margin-left: 160px;
+    position: absolute;
+    bottom: 0;
+    bottom: 3px;
+}
+
+.adminCart{
+    padding: 0 0px 0 50px;
+    text-align: center;
+    
+}
+
+#uploadFile {
+    position: relative;
+    left: 40px;
+}

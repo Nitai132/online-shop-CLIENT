@@ -1,0 +1,51 @@
+.title {
+    text-align: center;
+}
+
+#field1 {
+    position: absolute;
+    left: 400px;
+}
+
+#field2 {
+    position: absolute;
+    left: 710px;
+}
+
+#field3 {
+    position: absolute;
+    left: 1000px;
+}
+
+#field4 {
+    position: absolute;
+    left: 300px;
+}
+
+#field5 {
+    position: absolute;
+    left: 600px;
+}
+
+#field6 {
+    position: absolute;
+    left: 900px;
+}
+
+#note {
+    color: red
+}
+
+#next1 {
+    position: absolute;
+    left: 1250px;
+}
+
+#details {
+    color: red;
+}
+
+
+::ng-deep .mat-horizontal-stepper-header{
+    pointer-events: none !important;
+}

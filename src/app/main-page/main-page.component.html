@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+    <button mat-button class="logoutBtn" (click)="logout()" color="warn">
+        Logout
+    </button>
+    <span id="hello">Hello {{userDetails.firstName}}</span>
+    <span id="welcome">Welcome to Nitai's online market</span>
+    <span id="contact">Contact: Nitai132@gmail.com or: 052-2234047</span>
+</mat-toolbar>
+
+<app-cart [Product]="addedProducts" [Cart]="cart" [isAdmin]="userDetails.isAdmin" [editDetails]="itemToEdit"></app-cart>
+<app-products (productAdded)="addProductToCart($event)" (productEdit)="editProduct($event)" [isAdmin]="userDetails.isAdmin"></app-products>

@@ -1,0 +1,64 @@
+.categories-container {
+    position: absolute;
+    top: 0;
+    top: 63px;
+    left: 610px;
+}
+
+.products-container {
+    position: absolute;
+    width: 59%;
+    top: 104px;
+    left: 608px;
+}
+
+.card{
+    background-color: white;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    padding: 50px;
+    padding-bottom: 50px;
+    top: 50px;
+    width: 295px;
+    height: 295px;
+    box-sizing: border-box;
+    border: 1px solid white;
+}
+
+.img {
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+}
+
+.product-title {
+    position: relative;
+    text-align: center;
+    display: inline;
+    bottom: 30px;
+}
+
+.product-price {
+    position: relative;
+    bottom: 220px;
+    left: 50px;
+}
+
+.addBTN {
+    position: relative;
+    right: 35px;
+    bottom: 15px;
+}
+
+.fruitsText {
+    position: absolute;
+    color: red;
+    left: 800px;
+    top: 0;
+    top: 100px;
+}
+.searchInput {
+    position: absolute;
+    top: 5px;
+}

@@ -1,0 +1,66 @@
+#hello {
+    margin-left: 6%;
+}
+
+#welcome {
+    padding-left: 21%;
+}
+
+#contact {
+    padding-left: 12%;
+}
+
+.cartDiv {
+    width: 33%;;
+    height: 100% auto;
+    text-align: center;
+}
+
+.cartImg {
+    position: relative;
+    bottom: 70px;
+    left: 70px;
+    width: 100px;
+}
+
+.priceTxt {
+    position: relative;
+    bottom: 80px;
+    left: 50px;
+}
+
+.noChanges {
+    color: red;
+}
+
+.returnAnchor {
+    position: relative;
+    left: 150px;
+    bottom: 40px;
+}
+
+.orderDiv {
+    position: absolute;
+    margin-left: 505px;
+    top: 0;
+    top: 65px;
+    width: 68%;
+    height: 100%;
+    text-align: center;
+    background-color: lightgrey;
+}
+
+.purchaseBtn {
+    background-color: rgb(64, 151, 64);
+    color: white;
+}
+
+.datePicker{
+    margin-left: 25px;
+}
+
+#ifEmpty {
+    position: absolute;
+    left: 190px;
+    color: red
+}

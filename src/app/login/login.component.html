@@ -1,0 +1,62 @@
+
+<mat-toolbar color="primary">
+    <button  *ngIf="userDetails.firstName" mat-button class="logoutBtn" (click)="logout()" color="warn">
+        logout
+    </button>
+    <span id="hello" *ngIf="userDetails.firstName">Hello {{userDetails.firstName}}</span>
+    <span id="hello2" *ngIf="!userDetails.firstName">Hello guest</span>
+    <span id="welcome">Welcome to Nitai's online market</span>
+    <span id="contact">Contact: Nitai132@gmail.com or: 052-2234047</span>
+</mat-toolbar>
+<div id="mainText">
+    <h5>Nitai's market is one of the best, quickest and cheapest online Supermarket services out there.</h5>
+    <h5>With over 40 different products, more than 5 different categories and hundreds of costumers.</h5>
+    <h5>You can be 100% sure your personal details are safe and secure when shoping with Nitai's market.</h5>
+    <h5>So hop on and start online shopping with us today!</h5>  
+</div>
+<div id="login-text">
+    <h1 *ngIf="!userDetails.firstName">
+        Login and start shopping!
+    </h1>
+    <h2 *ngIf="order">
+        Your last order was made at:<br />{{order}}
+    </h2>
+    <h2 *ngIf="cartDate">
+        You have an open cart from:  <br />{{cartDate}}
+    </h2>
+    <h2 *ngIf="!order && !cartDate && userDetails.firstName">
+        Welcome {{userDetails.firstName}}! <br /> You can enter the shop <br />using the Start shopping button
+    </h2>
+</div>
+<div id="secondary-text">
+    <h4>Available products in our store - {{productsCount}}</h4>
+    <h4>Number of orderes submitted in our store - {{ordersCount}}</h4>
+</div>
+<form class="login-form" *ngIf="!userDetails._id">
+    <h5>Already have an account?</h5>
+    <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput (change)="onEmailChange($event)">
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="password" matInput (change)="onPasswordChange($event)">
+    </mat-form-field>
+    <br />
+    <button mat-raised-button color="primary" id="login-button" (click)="login()">Login</button>
+    <br />
+    <br />
+    <br />
+    <h5>Don't have an account yet? 
+        <br />
+        <br />
+        Register using the button below</h5>
+
+        <button mat-raised-button color="warn" id="login-button" (click)="register()">Register</button>
+</form>
+
+<button mat-raised-button  color="warn" id="startShoping" (click)="startShoping()" *ngIf="userDetails._id && !cartDate">Start shopping</button>
+<button mat-raised-button  color="primary" id="startShoping" (click)="startShoping()" *ngIf="userDetails._id && cartDate">Continue shopping</button>
+<img id="mainImg" width="700px" height="400px" src="http://localhost:4422/img/Supermarket2.jpg"> 
+<img id="secondaryImg" width="500px" src="http://localhost:4422/img/Supermarketcart.jfif">
